@@ -2,12 +2,14 @@ import axios from 'axios';
 
 let accessToken
 const SpotifyAPI = 'https://api.spotify.com/v1'
-const clientId = process.env.CLIENT_ID
-const redirectUri = process.env.URI
+// const clientId = process.env.CLIENT_ID
+// const redirectUri = process.env.URI
 
 
 const Spotify = {
     getAccessToken() {
+        console.log(process.env.REACT_APP_CLIENT_ID);
+        console.log(process.env.REACT_APP_URI)
         if (accessToken != null) {
             return accessToken
         }
@@ -21,7 +23,7 @@ const Spotify = {
             return accessToken;
         }
         else {
-            window.location = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`
+            window.location = `https://accounts.spotify.com/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${process.env.REACT_APP_URI}`
             return null;
         }
     },
