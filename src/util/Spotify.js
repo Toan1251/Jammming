@@ -2,8 +2,8 @@ import axios from 'axios';
 
 let accessToken
 const SpotifyAPI = 'https://api.spotify.com/v1'
-const clientId = '4aa35955e69740f6886176966ea4f717'
-const redirectUri = 'http://localhost:3000/'
+const clientId = process.env.CLIENT_ID
+const redirectUri = process.env.URI
 
 
 const Spotify = {
